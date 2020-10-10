@@ -1,0 +1,17 @@
+.el_a {
+  text-decoration:none;
+  line-height: 1;
+
+}
+.el_a:active {
+  color: inherit;
+}
+.el_a:visited {
+  color: inherit;
+}
+.el_a:link {
+  color: inherit;
+}
+.wrap {
+  text-align: center;
+}

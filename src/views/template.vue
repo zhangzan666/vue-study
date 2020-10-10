@@ -1,12 +1,15 @@
 <template>
-  <div class="wrap">
-    1
+  <div class='wrap'>
+    
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'Home'
+
 }
 </script>
+
+<style>
+
+</style>
