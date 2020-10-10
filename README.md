@@ -1,4 +1,12 @@
-# new feature
+
+
+# Vue.3 较与Vue.2X的差异
+
+
+
+## 新特性 new feature
+
+
 
 - **composition API**  组合API
 - **Teleport** 元素传送
@@ -6,56 +14,70 @@
 - **Emits Component Option** 发射组件选项
 - **custom renderers** 
 
-# breaking change
 
-## global API
 
-vue2.0 技术上 没有 "应用程序"的 概念
+## 原有内容更新 breaking change
 
-- 全局配置测试过程中 , 容易意外污染其他测试 , 并测试后 进行恢复 e.g 重置Vue.config.errorHandler
-- 全局配置会影响多个根实例
 
-### New global API
 
-**createApp**
+### 全局API (global API)
+
+新增了新的全局API **createApp**
 
 ```js
 const { createApp } from 'vue'
 const app = createApp({})
 ```
 
-### treeShaking
+解决了Vue 2.x 没有 **应用程序** 概念的问题
 
-Vue2.x 版本的 全局API ,不可通过treeShaking 删除死代码 , vue3.0则可以
+全局API  通过了import 引用 , 项目未使用的函数 , 将通过 **webpack**的**treeshaking** 来删除死代码 , 减少了生产体积 
 
-### template Directives
+### template direactives 模板指令
 
-#### v-model 
+v-model 扩展了更多功能 , 
 
-- prop:value  => modelValue
-- @input => update:modelValue
-- 移除了v-bind 的.sync 修饰符 和组件模型选项 . v-model 上的 一个参数代替
-- 可以同一组件 多个v-model 绑定
-- 新增 创建自定义 v-model 修改器的能力
+- 绑定的属性, **modelValue** 作为**propName** 传入 , 原有的**@input**  更改为 **updata:modelvalue** , 
+- 使用**v-model:modifier** 替代了原有的组件模型选项
+- 移除了**v-bind:sync** , 使用**v-model:propNAame** 代替
+- 新增 创建自定义 v-model 修饰符 的功能  `未测试`
 
-# Provide / Inject
 
-数据的 Inject 由上 到下
 
-# webpack Build
+### Component 
 
-打包时,可能会把Vue 包含在最终的生产环境内,需要webpak.config 配置 , 把vue 排除在外 
+**异步组件** 在Vue 3.0 需要 **defineAsyncComponent** 全局方法 来 定义
 
 ```js
-// webpack.config.js
-module.exports = {
-  /*...*/
-  externals: {
-    vue: 'Vue'
-  }
-}
+import { defineAsyncComponent } from 'vue'
+import ErrorComponent from './components/ErrorComponent.vue'
+import LoadingComponent from './components/LoadingComponent.vue'
+
+// Async component without options
+const asyncPage = defineAsyncComponent(() => import('./NextPage.vue'))
+
+// Async component with options
+const asyncPageWithOptions = defineAsyncComponent({
+  loader: () => import('./NextPage.vue'),
+  delay: 200,
+  timeout: 3000,
+  errorComponent: ErrorComponent,
+  loadingComponent: LoadingComponent
+})
 ```
 
-# V-if & v-for
+# NOTE
 
-Vue3.0 种 v -if 拥有 更高的权重 , 建议通过 计算 过滤 可见 元素 的列表
+- **webpack** 打包时 , 可能会把Vue 包含最终项目里 , 进行webpack 配置 , 把vue 移除
+
+  ```js
+  // webpack.config.js
+  module.exports = {
+    /*...*/
+    externals: {
+      vue: 'Vue'
+    }
+  }
+  ```
+
+- **v-if** & **v-for**  Vue 3.0 v-if 权重要比 v -for 高 , 最好 用 computed 过滤 需要 显示的 最终结果
