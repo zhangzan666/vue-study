@@ -30,7 +30,23 @@ const routes = [
       title: "v-for和v-if"
     },
     component: () => import(/* webpackChunkName: "about" */ '../views/vforvif/index.vue')
-  }
+  },
+  {
+    path: '/renderfun',
+    name: 'Renderfun',
+    meta: {
+      title: "渲染函数h"
+    },
+    component: () => import(/* webpackChunkName: "about" */ '../views/renderfun/index.vue')
+  },
+  {
+    path: '/globalComponent',
+    name: 'GlobalComponent',
+    meta: {
+      title: "全局组件"
+    },
+    component: () => import(/* webpackChunkName: "about" */ '../views/componentTest/index.vue')
+  },
 ]
 
 const router = createRouter({

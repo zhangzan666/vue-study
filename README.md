@@ -66,6 +66,58 @@ const asyncPageWithOptions = defineAsyncComponent({
 })
 ```
 
+
+
+### Render Function API
+
+**变化:**
+
+- h 全局导入 , 不再作为参数传递给`render()`
+- 虚拟节点(VNodes) 有扁平的 属性 结构
+
+
+
+参数由`setup()`处理 , 方便`render()`访问
+
+###  Custom Elements 自定义元素
+
+自定义元素 需要指示编译器 将其 视为 custom Element
+
+- 使用vue -loader , 通过compileerPotions 传递
+
+  ```\
+  // in webpack config
+  rules: [
+    {
+      test: /\.vue$/,
+      use: 'vue-loader',
+      options: {
+        compilerOptions: {
+          isCustomElement: tag => tag === 'plastic-button'
+        }
+      }
+    }
+    // ...
+  ]
+  ```
+
+- 使用 `on-the-fly` 即时模板编译 使用 **app.config.isCustomElement**
+
+  ```js
+  const app = Vue.createApp({})
+  app.config.isCustomElement = tag => tag === 'plastic-button'
+  ```
+
+### 小改动
+
+- 生命周期
+
+  `destroyed` (销毁) 更名为 `unmounted` (卸载)
+
+  `beforeDestroy` (销毁前) 更名为 `beforeUnmount` (卸载前)
+
+- Props default函数 不再能访问`this` 但可以导入inject 注入默认值
+
 # NOTE
 
 - **webpack** 打包时 , 可能会把Vue 包含最终项目里 , 进行webpack 配置 , 把vue 移除
