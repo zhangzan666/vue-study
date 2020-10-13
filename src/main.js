@@ -11,4 +11,15 @@ import '@/style/index.css'
 import { requireChild } from './globalComponent/index.js'
 
 requireChild(app)
+
+app.directive('global-focus', {
+  mounted(el) {
+    console.log(arguments , '全局指令')
+    el.focus()
+  },
+  beforeUpdate() {
+    console.log(arguments)
+  },
+})
+
 app.use(store).use(router).mount('#app')

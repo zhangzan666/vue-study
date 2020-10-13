@@ -1,6 +1,7 @@
 <template>
   <div class='wrap'>
     <global-child />
+    <hr> 
   </div>
 </template>
 

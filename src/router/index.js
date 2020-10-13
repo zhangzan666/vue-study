@@ -47,6 +47,22 @@ const routes = [
     },
     component: () => import(/* webpackChunkName: "about" */ '../views/componentTest/index.vue')
   },
+  {
+    path: '/customDirective',
+    name: 'CustomDirective',
+    meta: {
+      title: "自定义指令"
+    },
+    component: () => import(/* webpackChunkName: "about" */ '../views/customDirective/index.vue')
+  },
+  {
+    path: '/nonPropAttribute',
+    name: 'NonPropAttribute',
+    meta: {
+      title: "非Prop属性"
+    },
+    component: () => import(/* webpackChunkName: "about" */ '../views/nonPropAttr/index.vue')
+  },
 ]
 
 const router = createRouter({

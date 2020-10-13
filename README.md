@@ -118,6 +118,52 @@ const asyncPageWithOptions = defineAsyncComponent({
 
 - Props default函数 不再能访问`this` 但可以导入inject 注入默认值
 
+
+
+# API
+
+
+
+## APP config
+
+- errorHandler
+
+- warnHandler
+
+- globalProperties
+
+  ```js
+  const app = Vue.createApp({})
+  app.config.globalProperties.$http = () => {}
+  ```
+
+- isCustomElement
+
+  ```js
+  // any element starting with 'ion-' will be recognized as a custom one
+  app.config.isCustomElement = tag => tag.startsWith('ion-')
+  ```
+
+- optionMergeStrategies
+
+  配置 mixin 的合并策略
+
+- performance
+
+  将此设置为true，可以在浏览器devtool性能/时间线面板中启用组件初始化、编译、渲染和补丁性能跟踪。
+
+## 应用API
+
+- component
+- config
+- directive
+- mixin
+- mount
+- provide
+- unmount
+- use
+
+
 # NOTE
 
 - **webpack** 打包时 , 可能会把Vue 包含最终项目里 , 进行webpack 配置 , 把vue 移除

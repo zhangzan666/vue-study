@@ -15,3 +15,10 @@
 .wrap {
   text-align: center;
 }
+hr {
+  padding: 20px 0;
+}
+
+ul li {
+  list-style: none;
+}
