@@ -63,6 +63,14 @@ const routes = [
     },
     component: () => import(/* webpackChunkName: "about" */ '../views/nonPropAttr/index.vue')
   },
+  {
+    path: '/reactingProtive',
+    name: 'ReactingProtive',
+    meta: {
+      title: "具有反应性的protive"
+    },
+    component: () => import(/* webpackChunkName: "about" */ '../views/reactingProtive/index.vue')
+  },
 ]
 
 const router = createRouter({

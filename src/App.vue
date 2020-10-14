@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <div class="nav">
-      <router-link v-for="item in routeList" :key="item.path" :to='item.path' :class="['el_a',{active:item.path === $route.path}]" >{{item.meta ? item.meta.title : "首页"}}</router-link>
+      <router-link v-for="item in routeList" :key="item.path" :to='item.path' :class="['el_a',{active:item.path === $route.path}]"  :title='item.meta ? item.meta.title : "首页"'>{{item.meta ? item.meta.title : "首页"}}</router-link>
     </div>
     <div class="view">
       <router-view />

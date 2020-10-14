@@ -155,13 +155,22 @@ const asyncPageWithOptions = defineAsyncComponent({
 ## 应用API
 
 - component
+
 - config
+
 - directive
+
 - mixin
+
 - mount
+
 - provide
+
 - unmount
+
 - use
+
+  
 
 
 # NOTE

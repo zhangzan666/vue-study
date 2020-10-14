@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+//plugin
+import i18nPlugin from './plugin/i18n'
 //
 const app = createApp(App)
 import '@/style/index.css'
@@ -21,5 +23,13 @@ app.directive('global-focus', {
     console.log(arguments)
   },
 })
+
+const i18nStrings = {
+  greetings: {
+    hi: 'Hallo!'
+  } 
+}
+
+app.use(i18nPlugin, i18nStrings)
 
 app.use(store).use(router).mount('#app')
