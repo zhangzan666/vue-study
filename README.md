@@ -120,7 +120,7 @@ const asyncPageWithOptions = defineAsyncComponent({
 
 
 
-# API
+# API Reference（参考）
 
 
 
@@ -170,8 +170,25 @@ const asyncPageWithOptions = defineAsyncComponent({
 
 - use
 
-  
 
+
+## 全局API
+
+- createApp
+
+  两个参数
+
+  - options object 第一个参数
+  - root data 第二个参数
+  
+- h
+
+
+
+## Options
+
+- data
+- DOM
 
 # NOTE
 

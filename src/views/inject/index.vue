@@ -12,6 +12,7 @@
 <script>
 // import childCom from './childCom'
 import { defineAsyncComponent } from 'vue'
+// import vue from 'vue'
 export default {
   data(){
     return {
@@ -21,6 +22,7 @@ export default {
   provide(){
     return {
       message: '这是父组件provide 的信息11',
+      // reactingValue: vue.computed(this.reactingValue)
     }
   },
   inject: {
