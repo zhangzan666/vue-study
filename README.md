@@ -190,6 +190,16 @@ const asyncPageWithOptions = defineAsyncComponent({
 - data
 - DOM
 
+## instance Prop
+
+- $slots
+- $refs
+
+## Reactivity API
+
+
+
+
 # NOTE
 
 - **webpack** 打包时 , 可能会把Vue 包含最终项目里 , 进行webpack 配置 , 把vue 移除

@@ -71,6 +71,22 @@ const routes = [
     },
     component: () => import(/* webpackChunkName: "about" */ '../views/reactingProtive/index.vue')
   },
+  {
+    path: '/setup',
+    name: 'Setup',
+    meta: {
+      title: "setup()"
+    },
+    component: () => import(/* webpackChunkName: "about" */ '../views/setup/index.vue')
+  },
+  {
+    path: '/watch',
+    name: 'Watch',
+    meta: {
+      title: "watch"
+    },
+    component: () => import(/* webpackChunkName: "about" */ '../views/watch/index.vue')
+  },
 ]
 
 const router = createRouter({
