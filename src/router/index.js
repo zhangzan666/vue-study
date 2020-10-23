@@ -87,6 +87,14 @@ const routes = [
     },
     component: () => import(/* webpackChunkName: "about" */ '../views/watch/index.vue')
   },
+  {
+    path: '/vuex',
+    name: 'Vuex',
+    meta: {
+      title: "VUEX"
+    },
+    component: () => import(/* webpackChunkName: "about" */ '../views/vuex/index.vue')
+  },
 ]
 
 const router = createRouter({
