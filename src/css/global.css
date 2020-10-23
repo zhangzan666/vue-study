@@ -1,0 +1,16 @@
+.wrap {
+  padding: 0 20px;
+}
+h1 {
+  font-size: 30px;
+  line-height: 1;
+  color: #666;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-left: 5px solid #666;
+}
+
+.description {
+  color: #777;
+}

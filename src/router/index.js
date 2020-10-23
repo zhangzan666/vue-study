@@ -5,18 +5,44 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: '首页'
+    }
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/mixins',
+    name: 'Mixins',
+    meta: {
+      title: 'Mixins'
+    },
+    component: () => import(/* webpackChunkName: "mixins" */ '../views/Mixins.vue')
+  },
+  {
+    path: '/directive',
+    name: 'Directive',
+    meta: {
+      title: '自定义指令'
+    },
+    component: () => import(/* webpackChunkName: "directive" */ '../views/Directive.vue')
+  },
+  {
+    path: '/teleport',
+    name: 'Teleport',
+    meta: {
+      title: '传送/teleport'
+    },
+    component: () => import(/* webpackChunkName: "teleport" */ '../views/Teleport.vue')
+  },
+  {
+    path: '/renderFunction',
+    name: 'RenderFunction',
+    meta: {
+      title: 'RenderFunction'
+    },
+    component: () => import(/* webpackChunkName: "renderFunction" */ '../views/RenderFunction.vue')
   }
 ]
-
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
